@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 from flask_restful import Resource, Api, reqparse
 
 
@@ -49,6 +50,16 @@ api.add_resource(Over, '/api/over')
 api.add_resource(Premium, '/api/premium')
 api.add_resource(Grams, '/api/to_grams')
 api.add_resource(Ounces, '/api/to_ounces')
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/api')
+def api():
+    return render_template('api.html')
 
 
 if __name__ == '__main__':
