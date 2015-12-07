@@ -4,8 +4,8 @@ The provided API is simple to use. There are 4 methods, each of which returns JS
 
 <span style="color:red">/api/to_grams</span> converts grams to troy ounces. Submit your data with the parameter "grams" set to the amount of grams.<br>
 <span style="color:red">/api/to_ounces</span> converts troy ounces to grams. Submit your data with the parameter "oz" set to the amount of troy ounces.<br>
-<span style="color:red">/api/over</span> takes "spot" (spot price), "price" (price of the item), and "weight" (weight in troy ounces NOT GRAMS) and returns the $ amount over spot of the item.<br>
-<span style="color:red">/api/premium</span> takes "spot" (spot price), "price" (price of the item), and "weight" (weight in troy ounces NOT GRAMS) and returns the percentage over spot of the item.<br>
+<span style="color:red">/api/over</span> takes "spot" (spot price), "price" (price of the item), and "oz" (weight in troy ounces NOT GRAMS) and returns the $ amount over spot of the item.<br>
+<span style="color:red">/api/premium</span> takes "spot" (spot price), "price" (price of the item), and "oz" (weight in troy ounces NOT GRAMS) and returns the percentage over spot of the item.<br>
 
 Please try not to overload the server with your requests.
 {% endblock %}
