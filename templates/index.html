@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-Front-end calculator not yet implemented. Stay tuned...
+<form class="calc-form" onsubmit="return calculate();">
+    Spot Price <input type="text" name="spot">
+    Item Price <input type="text" name="price">
+    Item Weight (troy ounces) <input type="text" name="oz">
+    <input type="submit" value="Submit">
+</form>
+<div class="results">
+</div>
 {% endblock %}

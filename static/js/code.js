@@ -1,0 +1,41 @@
+function calculate() {
+    var spot = document.getElementsByName('spot')[0].value;
+    var price = document.getElementsByName('price')[0].value;
+    var oz = document.getElementsByName('oz')[0].value;
+    if (spot === '') {
+        alert('Please specify a spot price');
+        return false;
+    }
+    if (price === '') {
+        alert('Please specify an item price');
+        return false;
+    }
+    if (oz === '') {
+        alert('Please specify an item weight');
+        return false;
+    }
+    var request = new XMLHttpRequest();
+    request.open('POST', '/api/over', false);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.send('spot='+spot+'&price='+price+'&oz='+oz);
+    var data = JSON.parse(request.responseText);
+    var over = data['result'];
+
+    request = new XMLHttpRequest();
+    request.open('POST', '/api/premium', false);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.send('spot='+spot+'&price='+price+'&oz='+oz);
+    data = JSON.parse(request.responseText);
+    var premium = data['result'];
+
+    var div = document.getElementsByClassName('results')[0];
+    div.innerHTML = '';
+
+    var sp1 = document.createElement('span');
+    sp1.innerHTML = '<span style="color:red">Premium: </span>$'+premium+'<br>';
+    div.appendChild(sp1);
+    var sp2 = document.createElement('span');
+    sp2.innerHTML = '<span style="color:red">Price over spot: </span>$'+over;
+    div.appendChild(sp2);
+    return false;
+}

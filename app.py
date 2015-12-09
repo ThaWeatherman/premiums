@@ -18,14 +18,14 @@ class Over(Calculation):
     def post(self):
         args = self.parser.parse_args()
         val = ((args['price'] / args['oz']) - args['spot']) * args['oz'] if args['oz'] < 1 else (args['price'] / args['oz']) - args['spot']
-        return {'result': val}
+        return {'result': '%.2f'%val}
 
 
 class Premium(Calculation):
     def post(self):
         args = self.parser.parse_args()
         val = (((args['price'] / args['oz']) - args['spot']) / args['spot']) * 100
-        return {'result': val}
+        return {'result': '%.2f'%val}
 
 
 class Grams(Resource):

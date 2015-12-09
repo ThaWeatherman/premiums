@@ -1,15 +1,13 @@
 <html>
 <head>
-  <style>
-  body {
-    text-align: center;
-    background-color: #d3d3d3;
-  }
-  </style>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/code.js') }}"></script>
   <title>PM Premium Calculator</title>
-  <a href="/">Home</a> | <a href="/api">API</a><br><br>
+  <a href="/">Home</a> | <a href="/api">API</a>
 </head>
+<hr>
 <body>{% block content %}{% endblock %}</body>
+<hr>
 <footer>
   Copyright 2015 Sean Beck | 
   If you have an issue, please report it on Github | 
