@@ -32,7 +32,7 @@ function calculate() {
     div.innerHTML = '';
 
     var sp1 = document.createElement('span');
-    sp1.innerHTML = '<span style="color:red">Premium: </span>$'+premium+'<br>';
+    sp1.innerHTML = '<span style="color:red">Premium: </span>'+premium+'%<br>';
     div.appendChild(sp1);
     var sp2 = document.createElement('span');
     sp2.innerHTML = '<span style="color:red">Price over spot: </span>$'+over;
