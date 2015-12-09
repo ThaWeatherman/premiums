@@ -28,7 +28,7 @@ class Premium(Calculation):
         return {'result': '%.2f'%val}
 
 
-class Grams(Resource):
+class ToOunces(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('grams', type=float, required=True, help='Grams to troy ounces')
 
@@ -37,19 +37,19 @@ class Grams(Resource):
         return {'oz': args['grams'] * 0.032151}
 
 
-class Ounces(Resource):
+class ToGrams(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('oz', type=float, required=True, help='Troy ounces to grams')
 
     def post(self):
         args = self.parser.parse_args()
-        return {'grams': args['oz'] / 31.1035}
+        return {'grams': args['oz'] * 31.1035}
 
 
 api.add_resource(Over, '/api/over')
 api.add_resource(Premium, '/api/premium')
-api.add_resource(Grams, '/api/to_grams')
-api.add_resource(Ounces, '/api/to_ounces')
+api.add_resource(ToOunces, '/api/to_ounces')
+api.add_resource(ToGrams, '/api/to_grams')
 
 
 @app.route('/')

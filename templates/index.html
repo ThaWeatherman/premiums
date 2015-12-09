@@ -8,4 +8,13 @@
 </form>
 <div class="results">
 </div>
+<hr>
+<form class="convert-form" onsubmit="return convert();">
+    Amount <input type="text" name="amount">
+    <input type="checkbox" name="grams">Grams
+    <input type="checkbox" name="ounces">Ounces
+    <input type="submit" value="Submit">
+</form>
+<div class="conversion">
+</div>
 {% endblock %}
